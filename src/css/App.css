@@ -1,0 +1,18 @@
+* {
+  outline: 0 !important;
+}
+
+.App {
+  text-align: center;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+/* button:focus {
+  background-color: purple;
+  color: white;
+} */

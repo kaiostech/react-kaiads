@@ -1,0 +1,4 @@
+.DPad-container {
+    display: flex;
+    flex-direction: column;
+}

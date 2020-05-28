@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="rgb(106, 0, 128)" />
+    <script src="ads/kaiads.v3.min.js"></script>
+    <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        window.isKaiAdLoad = true;
+        window.loadKaiAd = (container, callback) => {
+          if (container) {
+            getKaiAd({
+              publisher: 'YOUR_PUBLISHER_ID',
+              app: 'kaios app',
+              slot: 'yourSlotName',
+              h: 60,
+              w: 230,
+              container: document.getElementById(container),
+              onerror: err => console.log('Ad error: ', err),
+              onready: ad => {
+                window.ads = ad;
+                ad.call('display', {
+                  tabindex: 0,
+                  navClass: 'items',
+                  display: 'block',
+                })
+                ad.on('display', callback);
+                ad.on('click', () => console.log('click event') )
+              }
+            });
+          } else {
+            getKaiAd({
+              publisher: 'YOUR_PUBLISHER_ID',
+              app: 'kaios app',
+              slot: 'yourSlotName',
+              onerror: err => console.log('Ad error: ', err),
+              onready: ad => {
+                ad.call('display')
+                ad.on('click', () => console.log('click event'))
+              }
+            });
+          }
+        }
+      });
+    </script>
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
